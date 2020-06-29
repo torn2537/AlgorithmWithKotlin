@@ -1,4 +1,4 @@
-//https://leetcode.com/problems/reverse-string/
+ //https://leetcode.com/problems/reverse-string/
 class ReverseString {
     fun solution(s: CharArray) {
         val mid: Int = s.size / 2
