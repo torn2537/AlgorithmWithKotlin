@@ -13,7 +13,7 @@ class SumArray {
         return resultArr
     }
     fun runningSum2(nums: IntArray): IntArray {
-        var i: Int = 1
+        var i = 1
         while (i < nums.size){
             nums[i] += nums[i-1]
             i++

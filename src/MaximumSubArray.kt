@@ -22,6 +22,7 @@ class MaximumSubArray {
             element also.
   '     */
         var i: Int = mid
+        var sum: Int = 0
         while (i >= low) {
             sum += arr[i]
             if (sum > leftSum) {
@@ -29,8 +30,13 @@ class MaximumSubArray {
             }
             i--
         }
-
-        var sum = 0
+        /*
+        Similarly, finding the maximum
+        sum of right subarray containing
+        the adjacent right element to the
+        middle element.
+        */
+        sum = 0
         i = mid + 1
         while (i <= high) {
             sum += arr[i]
