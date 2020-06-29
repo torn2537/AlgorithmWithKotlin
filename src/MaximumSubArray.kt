@@ -14,6 +14,7 @@ class MaximumSubArray {
     fun maxCrossingSubArray(arr: Array<Int>, low: Int, mid: Int, high: Int): Int {
         var leftSum: Int = Int.MIN_VALUE
         var rightSum: Int = Int.MIN_VALUE
+        var sum = 0
         /*'''
             iterating from middle
             element to the lowest element
@@ -22,7 +23,6 @@ class MaximumSubArray {
             element also.
   '     */
         var i: Int = mid
-        var sum: Int = 0
         while (i >= low) {
             sum += arr[i]
             if (sum > leftSum) {
@@ -30,12 +30,7 @@ class MaximumSubArray {
             }
             i--
         }
-        /*
-        Similarly, finding the maximum
-        sum of right subarray containing
-        the adjacent right element to the
-        middle element.
-        */
+
         sum = 0
         i = mid + 1
         while (i <= high) {
