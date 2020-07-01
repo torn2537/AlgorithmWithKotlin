@@ -5,13 +5,10 @@ class ListNode(var `val`: Int) {
 
 class ReversedLinkedList {
     fun solution(head: ListNode?): ListNode? {
-        var head = head
-        if (head == null) {
-            return null
-        }
+        var head: ListNode? = head ?: return null
         var prev: ListNode? = null
         var curr: ListNode? = head
-        var next: ListNode? = null
+        var next: ListNode?
         while (curr != null) {
             next = curr.next
             curr.next = prev
