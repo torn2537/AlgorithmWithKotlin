@@ -4,31 +4,24 @@ import java.util.LinkedList
 //https://leetcode.com/problems/permutations/
 
 class Permutations {
-    fun permute(nums: IntArray): List<List<Int>> {
-        val result: MutableList<List<Int>> = mutableListOf()
-        val permutations: Queue<List<Int>> = LinkedList(mutableListOf())
-        nums.forEach {
-            val n: Int = permutations.size
-            for (i in 0 until n) {
-                val oldPermutation: List<Int> = permutations.poll()
-                for (j in 0..oldPermutation.size) {
-                    val newPermutation: MutableList<Int> = mutableListOf()
-                    newPermutation.add(j, it)
-                    if (newPermutation.size == nums.size) {
-                        result.add(newPermutation)
-                    } else {
-                       permutations.offer(newPermutation)
-                    }
-                }
+    fun  <T> permute(nums: List<T>): List<List<T>> {
+        if(nums.size == 1) return listOf(nums)
+        val perms: MutableList<List<T>> = mutableListOf()
+        val toInsert: T = nums[0]
+        for(perm in permute(nums.drop(1))){
+            for(i in 0..perm.size){
+                val newPerm = perm.toMutableList()
+                newPerm.add(i, toInsert)
+                perms.add(newPerm)
             }
         }
-        return result
+        return perms
     }
 }
 
 fun main() {
-    val input1: IntArray = intArrayOf(1, 2, 3)
-    val result: List<List<Int>> = Permutations().permute(input1)
-    println("Input is: ${input1.asList()}")
-    println("Permutation result of the input is: $result")
+    val input = listOf('a', 'b')
+    val perms = Permutations().permute(input)
+    println("There are ${perms.size} permutations of $input, namely:\n")
+    for (perm in perms) println(perm)
 }
