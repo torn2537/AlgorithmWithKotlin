@@ -1,6 +1,19 @@
 //https://leetcode.com/problems/reverse-linked-list/
 class ListNode(var `val`: Int) {
     var next: ListNode? = null
+
+    constructor(`val`: Int, listNode: ListNode?) : this(`val`) {
+        this.next = listNode
+    }
+//    override fun toString(): String {
+//        var copyList: ListNode? = this
+//        val stringList: MutableList<Int?> = mutableListOf()
+//        while (copyList !== null){
+//            stringList.add(copyList.`val`)
+//            copyList = copyList.next
+//        }
+//        return  stringList.toString()
+//    }
 }
 
 class ReversedLinkedList {
@@ -27,5 +40,5 @@ fun main() {
     starterNode.next?.next?.next = ListNode(4)
     starterNode.next?.next?.next?.next = ListNode(5)
 
-    println("Result of reversing a List Node is ${ReversedLinkedList().solution(starterNode)?.next?.`val`}")
+    println("Result of reversing a List Node is ${ReversedLinkedList().solution(starterNode)?.`val`}")
 }

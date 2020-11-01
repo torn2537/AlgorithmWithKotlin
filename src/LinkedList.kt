@@ -1,5 +1,4 @@
-class Node<T>(value: T) {
-    var value: T = value
+class Node<T>(var value: T) {
     var next: Node<T>? = null
     var previous: Node<T>? = null
 }
@@ -50,8 +49,8 @@ class LinkedList<T> {
     }
 
     fun append(value: T) {
-        var newNode = Node(value)
-        var lastNode = this.last()
+        val newNode = Node(value)
+        val lastNode = this.last()
         if (lastNode != null) {
             newNode.previous = lastNode
             lastNode.next = newNode
